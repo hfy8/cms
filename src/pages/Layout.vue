@@ -8,7 +8,6 @@
     height: 100vh
   }
   .layout-header-bar{
-    background: #fff;
     box-shadow: 0 1px 1px rgba(0,0,0,.1);
   }
   .menu-item span{
@@ -41,7 +40,7 @@
   <div class="layout">
     <Layout>
       <Sider breakpoint="md" collapsible :collapsed-width="78" v-model="isCollapsed">
-        <Menu theme="dark" width="auto" :class="menuitemClasses">
+        <Menu :theme="theme" width="auto" :class="menuitemClasses">
          <Submenu v-for="(item,index) in items" :key="item.title" :name="index"  >
            <template slot="title">
              <Icon :type="item.icon" />
@@ -53,7 +52,7 @@
         <div slot="trigger"></div>
       </Sider>
       <Layout :style="{height:'100vh'}">
-        <Header class="layout-header-bar"></Header>
+        <Header class="layout-header-bar" ></Header>
         <Breadcrumb :style="{margin: '10px 0px 0px 10px'}">
           <BreadcrumbItem>Home</BreadcrumbItem>
           <BreadcrumbItem>Components</BreadcrumbItem>
@@ -67,12 +66,14 @@
 </template>
 <script>
 import menus from '../menu'
+import config from '../config'
 
 export default {
   name: 'App',
   data () {
     return {
-      isCollapsed: false
+      isCollapsed: false,
+      theme: config.theme.dark
     }
   },
   computed: {

@@ -13,7 +13,9 @@ const config = {
     error: '#f44336',
     warning: '#FFC107',
     info: '#64B5F6',
-    success: '#4caf50'
+    success: '#4caf50',
+    dark: 'dark',
+    default: 'default'
   },
   isDark: true,
   unitOption: [
