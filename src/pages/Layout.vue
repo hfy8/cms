@@ -8,6 +8,7 @@
     height: 100vh
   }
   .layout-header-bar{
+    background: #4a5454;
     box-shadow: 0 1px 1px rgba(0,0,0,.1);
   }
   .menu-item span{
@@ -46,19 +47,20 @@
              <Icon :type="item.icon" />
              {{item.title}}
            </template>
-           <MenuItem v-for="(subitem) in item.items" :key="subitem.title" :to="subitem.path">{{subitem.title}}</MenuItem>
+           <MenuItem v-for="(subitem,subindex) in item.items" :key="subitem.title" :to="item.path+subitem.path" :name="index+'-'+subindex">{{subitem.title}}</MenuItem>
          </Submenu>
         </Menu>
         <div slot="trigger"></div>
       </Sider>
       <Layout :style="{height:'100vh'}">
         <Header class="layout-header-bar" ></Header>
-        <Breadcrumb :style="{margin: '10px 0px 0px 10px'}">
+        <Breadcrumb separator=">" :style="{margin: '10px 0px 0px 10px'}">
           <BreadcrumbItem>Home</BreadcrumbItem>
           <BreadcrumbItem>Components</BreadcrumbItem>
           <BreadcrumbItem>Layout</BreadcrumbItem>
         </Breadcrumb>
         <Content :style="{margin: '10px', background: '#fff', minHeight: '220px'}">
+        <router-view/>
         </Content>
       </Layout>
     </Layout>

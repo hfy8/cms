@@ -15,7 +15,7 @@ const config = {
     info: '#64B5F6',
     success: '#4caf50',
     dark: 'dark',
-    default: 'default'
+    default: 'light'
   },
   isDark: true,
   unitOption: [

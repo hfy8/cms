@@ -8,6 +8,7 @@ import 'iview/dist/styles/iview.css'
 import App from './App'
 import router from './router'
 import config from './config'
+import './my-theme/index.less'
 // 导入iView UI
 Vue.use(iView)
 Vue.use(Vuex)
