@@ -9,6 +9,7 @@
     </div>
     <Table :row-class-name="rowClassName" :columns="columns">
     </Table>
+    <Page :total="40" size="small" show-elevator show-sizer />
   </Card>
 </template>
 

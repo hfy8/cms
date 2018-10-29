@@ -2,19 +2,21 @@
   <Card>
     <div slot="title">
       <Row>
-        <Col span="8"><Button type="primary">新增品牌</Button></Col>
+        <Col span="8"><brand-form></brand-form></Col>
         <Col span="8"><p></p></Col>
         <Col span="8"><Input search placeholder="搜索" /></Col>
       </Row>
     </div>
-    <Table :row-class-name="rowClassName" :columns="columns">
-    </Table>
+    <Table :row-class-name="rowClassName" :columns="columns"></Table>
+    <Page :total="40" size="small" show-elevator show-sizer />
   </Card>
 </template>
 
 <script>
+import BrandForm from './BrandForm'
 export default {
   name: 'brand',
+  components: {BrandForm},
   data () {
     return {
       columns: [
@@ -34,7 +36,9 @@ export default {
       }
       return ''
     }
-
+  },
+  comments: {
+    BrandForm
   }
 }
 </script>

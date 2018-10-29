@@ -40,7 +40,8 @@
 <template>
   <div class="layout">
     <Layout>
-      <Sider breakpoint="md" collapsible :collapsed-width="78" v-model="isCollapsed">
+      <transition name="fade" mode="out-in">
+      <Sider breakpoint="md" collapsible :collapsed-width="78" v-show="isCollapsed">
         <Menu :theme="theme" width="auto" :class="menuitemClasses">
          <Submenu v-for="(item,index) in items" :key="item.title" :name="index"  >
            <template slot="title">
@@ -52,8 +53,10 @@
         </Menu>
         <div slot="trigger"></div>
       </Sider>
+      </transition>
       <Layout :style="{height:'100vh'}">
-        <Header class="layout-header-bar" ></Header>
+        <Header class="layout-header-bar" ><Button icon="md-list" type="primary" @click="slipermodal"/>
+        </Header>
         <Breadcrumb separator=">" :style="{margin: '10px 0px 0px 10px'}">
           <BreadcrumbItem>Home</BreadcrumbItem>
           <BreadcrumbItem>Components</BreadcrumbItem>
@@ -87,6 +90,11 @@ export default {
         'menu-item',
         this.isCollapsed ? 'collapsed-menu' : ''
       ]
+    }
+  },
+  methods: {
+    slipermodal () {
+      this.isCollapsed = !this.isCollapsed
     }
   }
 }
